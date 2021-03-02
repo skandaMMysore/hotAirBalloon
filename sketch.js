@@ -46,18 +46,18 @@ function draw() {
   }
   
   if(keyDown(DOWN_ARROW)){
-    updatePosition(10,0);
+    updatePosition(0,+10);
     balloon.addAnimation("hotAirBalloon",balloonImage3);
-    balloon.scale = balloon.scale+100;
-    balloon.y = balloon.y+10;
+    balloon.scale = balloon.scale+0.01;
+    //balloon.y = balloon.y+10;
   }
 
   drawSprites();
 }
 function updatePosition(x,y){
-   database.ref("balloon/position").set({x:position.x+x,y:position.y+y});
-   balloon.x = balloon.x+x;
-   balloon.y = balloon.y+y;
+   database.ref("Balloon/position").update({x:height.x+x,y:height.y+y});
+   //balloon.x = balloon.x+x;
+   //balloon.y = balloon.y+y;
 }
 function showError(){
   console.log("Error in writing to the database");
